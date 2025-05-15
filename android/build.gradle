@@ -30,6 +30,15 @@ apply plugin: 'kotlin-android'
 android {
     compileSdk 34
 
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17
+    }
+
     if (project.android.hasProperty("namespace")) {
         namespace "com.hiennv.flutter_callkit_incoming"
     }
@@ -45,15 +54,15 @@ android {
     }
 }
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
-}
+// java {
+//     toolchain {
+//         languageVersion.set(JavaLanguageVersion.of(17))
+//     }
+// }
 
-kotlin {
-    jvmToolchain(17)
-}
+// kotlin {
+//     jvmToolchain(17)
+// }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
